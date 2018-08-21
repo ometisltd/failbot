@@ -18,18 +18,19 @@ const msToHuman = require('./helpers/msToHumanReadTime');
 function alertOnSlack(target, settingsSlackTeam, slackTeamIndex, tasks) {
   const fetchIntervalSeconds = Math.floor(settings.fetchIntervalMS / 1000);
   const timeframe = msToHuman(fetchIntervalSeconds);
+  const serverDisplay = server.externalHostname || server.hostname;
 
   const body = {
     channel: target,
     icon_emoji: settingsSlackTeam.botEmoji,
     username: settingsSlackTeam.botName,
     text: `*${server.displayName}*: ${tasks.length} task(s) failed in the last ${timeframe}
-<https://${server.hostname}/qmc/tasks|Open tasks on the QMC>`,
+<https://${serverDisplay}/qmc/tasks|Open tasks on the QMC>`,
     attachments: map(tasks, task => {
       const titleLink =
         task.schemaPath === 'ReloadTask'
-          ? `https://${server.hostname}/sense/app/${task.target.id}`
-          : `https://${server.hostname}/qmc/userdirectoryconnectors`;
+          ? `https://${serverDisplay}/sense/app/${task.target.id}`
+          : `https://${serverDisplay}/qmc/userdirectoryconnectors`;
       const taskSlack = task.slack[slackTeamIndex];
 
       return {

@@ -48,6 +48,7 @@ $ node app.js
 {
   "server": {
     "hostname": "development.myserver.internal",
+    "externalHostname": "remoteaccess.myserver.com"
     "displayName": "My Dev Server",
     "xrfkey": "abcdefghijklmnop"
   },
@@ -73,6 +74,8 @@ $ node app.js
 The **server** object holds the details for the Qlik Sense server.
 
 `server.hostname` Base URL of the server. It should match the field `Host name` on /qmc/nodes/ e.g. _development.myserver.internal_
+
+`server.externalHostname` **Optional** Base URL of the server when accessing it from outside the network. The value here will be used instead of `server.hostname` when building any links. E.g. _remoteaccess.myserver.com_
 
 `server.displayName` Name for your server. E.g. _My Dev Server_
 

@@ -23,7 +23,7 @@ function isManuallyTriggered(task, propsToMatch) {
 }
 
 function isSuccessful(task) {
-  return task.operational.lastExecutionResult.status !== 7;
+  return task.operational && task.operational.lastExecutionResult.status !== 7;
 }
 
 function inTheLastMilliseconds(task, timeframe) {
