@@ -48,7 +48,7 @@ $ node app.js
 {
   "server": {
     "hostname": "development.myserver.internal",
-    "externalHostname": "remoteaccess.myserver.com"
+    "externalHostname": "remoteaccess.myserver.com",
     "displayName": "My Dev Server",
     "xrfkey": "abcdefghijklmnop"
   },
