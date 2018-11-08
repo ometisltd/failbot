@@ -26,7 +26,7 @@ function fetchFromAPI() {
     .catch(err =>
       error(`Could not fetch tasks from the API.
        | Check the hostname for errors: ${err.host}
-       | Full ${err}`)
+       | Full error: ${err}`)
     );
 }
 
